@@ -1,0 +1,85 @@
+/**index.wxss**/
+
+page {
+  height: 100%;
+  background-color: #f6f6f6;
+}
+
+.container {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: flex-start;
+}
+
+.container-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 10px 10px 0 #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.container-header > .desc {
+  color: #333;
+  font-size: 14px;
+}
+.container-header > .num {
+  color: green;
+  font-size: 2em;
+  margin: 0 10px;
+}
+
+.container-main {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.container-main .grid-row {
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 5px;
+  background-color: #fff;
+
+  display: grid;
+  grid-template-columns: auto 80px;
+  grid-template-rows: auto auto;
+
+  color: #333;
+  font-size: 14px;
+}
+
+.container-main .grid-row > .comment {
+  color: #666;
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.container-main .grid-row > .num {
+  color: green;
+}
+
+.container-main .grid-row > .num:after {
+  content: " 元";
+}
+
+.container-footer {
+  border-top: 1px solid #e8e8e8;
+  width: 100%;
+
+  padding: 10px 0;
+}
+
+.container-footer > button {
+  font-weight: normal;
+  font-size: 14px;
+  margin: 10px auto;
+}

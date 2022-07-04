@@ -1,0 +1,22 @@
+<!--index.wxml-->
+
+<view class="container">
+    <view class="item">
+        <view class="desc">日期：</view>
+        <picker mode="date" value="{{date}}" data-name="date" bindchange="bindValueChange">
+            <view class="picker">{{date}}</view>
+        </picker>
+    </view>
+
+    <view class="item">
+        <view class="desc">消费（元）：</view>
+        <input type="number" data-name="cost" value="{{cost}}" bindinput="bindValueChange"/>
+    </view>
+
+    <view class="item">
+        <view class="desc">备注：</view>
+        <textarea data-name="comment" type="text" bindinput="bindValueChange"/>
+    </view>
+
+    <button type="primary" bindtap="submit">提交</button>
+</view>

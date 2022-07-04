@@ -1,0 +1,21 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="container-header">
+        <view class="desc">共消费</view>
+        <view class="num">{{total}}元</view> 
+    </view>
+
+    <view class="container-main">
+        <view class="content">
+            <view wx:for="{{records}}" wx:key="id" wx:for-item="record" class="grid-row">
+                <view>{{record.date}}</view>
+                <view class="num">{{record.cost}}</view>
+                <view class="comment" wx:if="{{record.comment}}">{{record.comment}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="container-footer">
+        <button type="primary" bindtap="jumpPage">添加记录</button>
+    </view>
+</view>

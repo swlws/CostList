@@ -1,0 +1,1 @@
+"/Applications/wechatwebdevtools.app/Contents/MacOS/cli" cloud functions deploy --e cloud1-0genmmqb48983de6 --n quickstartFunctions --r --project "/Users/sunwenlong/Self/work-weixin/CostList" --report_first --report
