@@ -6,11 +6,11 @@
 
 记录
 
-![page01]('https://github.com/swlws/CostList/blob/master/doc/page01.png)
+![page01](doc/page01.png)
 
 增加记录
 
-![page02]('https://github.com/swlws/CostList/blob/master/doc/page02.png)
+![page02](doc/page02.png)
 
 ## 参考文档
 
