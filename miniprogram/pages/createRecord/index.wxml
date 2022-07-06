@@ -8,9 +8,19 @@
         </picker>
     </view>
 
+    <view class="item type-group">
+        <view class="desc">类型：</view>
+        <radio-group data-name="type" bindchange="bindValueChange" >
+            <label wx:for="{{types}}" wx:for-item="item"  wx:key="value">
+                <radio value="{{item.value}}" checked="true"/>
+                <view class="weui-cell__bd">{{item.name}}</view>
+            </label>
+        </radio-group>
+    </view>
+
     <view class="item">
         <view class="desc">消费（元）：</view>
-        <input type="number" data-name="cost" value="{{cost}}" bindinput="bindValueChange"/>
+        <input type="digit" data-name="cost" value="{{cost}}" bindblur="bindValueChange"/>
     </view>
 
     <view class="item">

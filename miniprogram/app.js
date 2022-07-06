@@ -1,6 +1,6 @@
 // app.js
 
-const CLOUD_FUNCTION_NAME = "quickstartFunctions";
+const { initCollections } = require("./apis/record");
 
 App({
   onLaunch: function () {
@@ -17,18 +17,8 @@ App({
       });
     }
 
-    this.globalData = { CLOUD_FUNCTION_NAME };
+    // this.globalData = { QUICK_START_FUNCTIONS };
 
-    // wx.cloud
-    //   .callFunction({
-    //     name: CLOUD_FUNCTION_NAME,
-    //     data: {
-    //       type: "initCollections",
-    //     },
-    //   })
-    //   .then(({result}) => {
-    //     const {success} =result || {};
-    //     console.log("init database: " + success);
-    //   });
+    // initCollections();
   },
 });

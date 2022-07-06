@@ -8,6 +8,10 @@ const COLLECTION_RECORD = "record";
 const db = cloud.database();
 
 let initEnd = false;
+
+/**
+ * 初始化数据库集合
+ */
 async function initCollections() {
   if (initEnd === true) return { success: true };
 
@@ -27,10 +31,13 @@ async function initCollections() {
   }
 }
 
+/**
+ * 添加一条记录
+ *
+ * @param {*} event
+ * @param {*} context
+ */
 async function insertOneRecord(event, context) {
-  console.log(event);
-  console.log(context);
-
   const { OPENID: _openid } = cloud.getWXContext();
   const { param } = event;
 
@@ -50,12 +57,18 @@ async function insertOneRecord(event, context) {
   }
 }
 
+/**
+ * 移除一条记录
+ *
+ * @param {*} event
+ * @param {*} context
+ */
 async function removeOneRecord(event, context) {
-  const { OPENID: _openid } = cloud.getWXContext();
   const { param } = event;
   if (!param) return { success: false };
 
   const { id } = param;
+  if (!id) return;
 
   try {
     await db.collection(COLLECTION_RECORD).doc(id).remove();
@@ -70,16 +83,22 @@ async function removeOneRecord(event, context) {
   }
 }
 
+/**
+ * 获取所有记录
+ *
+ * @param {*} event
+ * @param {*} context
+ */
 async function getRecords(event, context) {
   const { OPENID: _openid } = cloud.getWXContext();
 
   try {
-    // const clustor = await db.collection("reocrd").get();
     const clustor = await db
       .collection(COLLECTION_RECORD)
       .where({
         _openid,
       })
+      .orderBy("date", "desc")
       .get();
 
     return {
@@ -97,6 +116,8 @@ async function getRecords(event, context) {
 // 云函数入口函数
 exports.main = async (event, context) => {
   console.log(`call cloud funcitons, ${event.type}`);
+  console.log(event);
+
   switch (event.type) {
     case "initCollections":
       return await initCollections();
